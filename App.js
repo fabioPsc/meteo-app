@@ -1,18 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, FlatList} from 'react-native';
 import Header from './components/Headers';
 import WeatherCard from './components/WeatherCard';
 import AddCityModal from './components/AddCityModal'; 
 
 export default class App extends React.Component {
   state={
-    cities: ['Roma', 'Milano', 'Brescia', 'Palermo', 'Catania', 'Bergamo', 'Bologna'],
+    cities: ['Roma', 'Milano', 'Brescia', 'Palermo', 'Bergamo', 'Bologna', 'Cremona', 'Mantova'],
     visible: false,
   }
   openModal=()=>{
     this.setState({
       visible: true,
+    })
+  }
+  closeModal=()=>{
+    this.setState({
+      visible: false,
     })
   }
   render() {
@@ -21,12 +26,12 @@ export default class App extends React.Component {
       ))
       return (
         <View style={styles.container}>
-        <AddCityModal visible={this.state.visible} />
-        <Header title={'Meteo App'} />
-        <ScrollView contentContainerStyle={styles.cardContainer}>
-        {cities}
-        <Button title={'Aggiungi'} onPress={this.openModal} />
-        </ScrollView>
+          <AddCityModal visible={this.state.visible} closeModal={this.closeModal} />
+          <Header title={'Meteo App'} />
+          <ScrollView contentContainerStyle={styles.cardContainer}>
+            {cities}
+            <Button title={'Aggiungi'} onPress={this.openModal} />
+          </ScrollView>
         
         </View>
         );
