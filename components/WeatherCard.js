@@ -17,11 +17,17 @@ const styles=StyleSheet.create({
         backgroundColor: 'white',
         shadowColor: 'black',
         shadowRadius: 2,
-        shadowOffset: {width: 2, height: 2},
-        shadowOpacity: 0.8,
+        shadowOffset: {width: 0, height: 1},
+        shadowOpacity: 0.3,
+        marginBottom: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        /* resolve for android */
+        elevation: 12,
+        borderRadius: 8,
     },
     title: {
-        color: 'white',
+        color: 'blue',
         fontSize: 22,
     }
 })
